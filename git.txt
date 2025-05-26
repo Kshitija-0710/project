@@ -1,0 +1,9 @@
+Install the git
+Configure the email and name with one command
+
+hit config --global user.name "--"
+
+Step 1- creat the respostispry
+creat the folder on dekstop
+Get inital in it with command git init
+

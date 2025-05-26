@@ -1,0 +1,65 @@
+f- string
+. format
+
+
+x = 10
+y = 20
+z = 30
+print ("the value of varible x is :",x)
+print ("the value of varible y is :",y)
+print ("the value of varible z is :",z)
+
+f- string
+x = 100
+y = 200
+z = 300
+#x==10, y==200, z==300, x+y+z==600
+print(f'x=={x}, y=={y}, z=={z}, x+y+z=={x+y+z})
+
+. format
+x = 100
+y = 200
+z = 300
+#x==100, y==200, z==300
+print('x=={},y=={},z=={}'.format(x,y,z))
+print('x=={},y=={},z=={},x+y+z'=={}.format(x,y,z))
+
+Multiple values to multiple varaibale
+a=10; b=20; c=hi
+print(a b c)
+
+delete variable
+v="pune"
+print(V)
+del v
+print(v)- error
+
+
+a=1
+print (a)
+del a
+print(a)
+
+Identifiers
+1. Varibale 
+2. Function name
+3. Class name
+
+#oops#
+
+Class classname():
+obj=classname()
+
+def function_name();
+	return a
+Function_name()
+
+
+Data types()
+Numeric DT : int, flot, complex
+Text : str
+Sequence : list, tuple, set
+mapping: dict
+boolean: bool(true,false)
+enumerate, rang, none
+
