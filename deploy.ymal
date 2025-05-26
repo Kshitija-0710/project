@@ -1,0 +1,11 @@
+- name: Deploy via SSH
+  uses: appleboy/ssh-action@v0.1.7
+  with:
+    host: ${{ secrets.HOST }}
+    username: ${{ secrets.USERNAME }}
+    key: ${{ secrets.AWS_SSH_KEY }}
+    script: |
+      docker pull your-repo/nodejs-demo-app:latest
+      docker stop nodejs-demo-app || true
+      docker rm nodejs-demo-app || true
+      docker run -d --name nodejs-demo-app -p 80:3000 your-repo/nodejs-demo-app:latest
