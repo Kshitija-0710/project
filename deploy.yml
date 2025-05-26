@@ -16,7 +16,7 @@ jobs:
       - name: Run SSH Commands
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: ${{ secrets.13.218.176.133 }}
+          host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
