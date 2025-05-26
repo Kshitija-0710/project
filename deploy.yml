@@ -3,7 +3,7 @@ name: Deploy Node App
 on:
   push:
     branches:
-      - main  # or your branch
+      - master 
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Run SSH Commands
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: ${{ secrets.SSH_HOST }}
+          host: ${{ secrets.13.218.176.133 }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
