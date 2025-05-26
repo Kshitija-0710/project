@@ -1,0 +1,42 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_kshitija1510 }}
+          password: ${{ secrets.DOCKER_Kshitija@#1510 }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: yourdockerhubusername/nodejs-demo-app:latest
+
+      - name: Deploy to AWS EC2 via SSH
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_SSH_KEY }}
+          script: |
+            docker pull yourdockerhubusername/nodejs-demo-app:latest
+            docker stop nodejs-demo-app || true
+            docker rm nodejs-demo-app || true
+            docker run -d --name nodejs-demo-app -p 80:3000 yourdockerhubusername/nodejs-demo-app:latest
